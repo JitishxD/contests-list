@@ -1,2 +1,7 @@
 node_modules
 build
+
+# env files
+.env
+.env.*
+!.env.example
