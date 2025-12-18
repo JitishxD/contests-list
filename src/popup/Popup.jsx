@@ -65,6 +65,7 @@ export const Popup = () => {
           onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
           onRefresh={refresh}
           lastFetchedAt={lastFetchedAt}
+          isSidebarOpen={isSidebarOpen}
           onOpenModal={() => setIsModalOpen(true)}
         />
 

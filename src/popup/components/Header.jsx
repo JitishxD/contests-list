@@ -8,12 +8,18 @@ function formatLastUpdated(lastFetchedAt) {
   return date.toLocaleString();
 }
 
-const Header = ({ onToggleSidebar, onRefresh, lastFetchedAt, onOpenModal }) => {
+const Header = ({
+  onToggleSidebar,
+  onRefresh,
+  lastFetchedAt,
+  onOpenModal,
+  isSidebarOpen,
+}) => {
   const lastUpdatedText = formatLastUpdated(lastFetchedAt);
 
   return (
     <div className="flex justify-between items-center px-4 py-3 bg-gray-900 text-white border-b border-gray-800">
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2 min-w-0">
         <button
           onClick={onToggleSidebar}
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200"
@@ -29,26 +35,34 @@ const Header = ({ onToggleSidebar, onRefresh, lastFetchedAt, onOpenModal }) => {
         </button>
 
         {lastUpdatedText ? (
-          <div className="text-[15px] text-gray-400 whitespace-nowrap">
+          <div
+            className={
+              "text-gray-400 min-w-0 " +
+              (isSidebarOpen
+                ? "text-[11px] whitespace-normal wrap-break-word leading-tight max-w-[150px]"
+                : "text-[15px] whitespace-nowrap")
+            }
+            title={lastUpdatedText}
+          >
             Last updated: {lastUpdatedText}
           </div>
         ) : null}
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="header-socialRow">
         <button
           onClick={onOpenModal}
-          className="text-white hover:text-gray-300 transition-colors duration-200"
+          className="text-white hover:text-gray-300 header-socialItem header-socialItem--1"
           title="Buy me a coffee"
         >
           <img src="/icons/coffee.svg" alt="Donate" className="w-6 h-6" />
         </button>
 
         <a
-          href="https://github.com/jitishxd"
+          href="https://github.com/JitishxD/contests-list"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 transition-colors duration-200"
+          className="text-white hover:text-gray-300 header-socialItem header-socialItem--2"
         >
           <img src="/icons/github.svg" alt="GitHub" className="w-6 h-6" />
         </a>
@@ -57,7 +71,7 @@ const Header = ({ onToggleSidebar, onRefresh, lastFetchedAt, onOpenModal }) => {
           href="https://www.linkedin.com/in/jitish/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 transition-colors duration-200"
+          className="text-white hover:text-gray-300 header-socialItem header-socialItem--3"
         >
           <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
         </a>

@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+/* 
+Sibling hover effect for header social icons that is on hover, slightly nudge siblings left/right 
+*/
+
+.header-socialRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.header-socialItem {
+    display: inline-flex;
+    flex: 0 0 auto;
+    transition: transform 180ms ease;
+    will-change: transform;
+}
+
+.header-socialItem:hover {
+    transform: scale(1.4);
+}
+
+.header-socialRow:has(.header-socialItem--1:hover) .header-socialItem--2,
+.header-socialRow:has(.header-socialItem--1:hover) .header-socialItem--3 {
+    transform: translateX(5px);
+}
+
+.header-socialRow:has(.header-socialItem--2:hover) .header-socialItem--1 {
+    transform: translateX(-5px);
+}
+
+.header-socialRow:has(.header-socialItem--2:hover) .header-socialItem--3 {
+    transform: translateX(5px);
+}
+
+.header-socialRow:has(.header-socialItem--3:hover) .header-socialItem--1,
+.header-socialRow:has(.header-socialItem--3:hover) .header-socialItem--2 {
+    transform: translateX(-5px);
+}
