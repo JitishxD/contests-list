@@ -23,8 +23,8 @@ const Sidebar = ({
               key={platform.id}
               className={`cursor-pointer px-4 py-2 rounded-lg border font-medium transition-colors duration-150 flex items-center justify-center text-center ${
                 selectedPlatforms.includes(platform.id)
-                  ? "bg-teal-600 border-teal-600 text-white"
-                  : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:text-white"
+                  ? "bg-neutral-800 border-l-4 border-l-emerald-400 border-t-neutral-700 border-r-neutral-700 border-b-neutral-700 text-white"
+                  : "bg-neutral-800/50 border border-neutral-700 text-neutral-400 hover:bg-neutral-700/50 hover:text-white"
               }`}
             >
               <input
@@ -46,8 +46,8 @@ const Sidebar = ({
           <label
             className={`cursor-pointer px-4 py-2 rounded-lg border font-medium transition-colors duration-150 flex items-center justify-center text-center ${
               timeFilter === "today"
-                ? "bg-teal-600 border-teal-600 text-white"
-                : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:text-white"
+                ? "bg-neutral-800 border-l-4 border-l-emerald-400 border-t-neutral-700 border-r-neutral-700 border-b-neutral-700 text-white"
+                : "bg-neutral-800/50 border border-neutral-700 text-neutral-400 hover:bg-neutral-700/50 hover:text-white"
             }`}
           >
             <input
@@ -62,8 +62,8 @@ const Sidebar = ({
           <label
             className={`cursor-pointer px-4 py-2 rounded-lg border font-medium transition-colors duration-150 flex items-center justify-center text-center ${
               timeFilter === "upcoming"
-                ? "bg-teal-600 border-teal-600 text-white"
-                : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:text-white"
+                ? "bg-neutral-800 border-l-4 border-l-emerald-400 border-t-neutral-700 border-r-neutral-700 border-b-neutral-700 text-white"
+                : "bg-neutral-800/50 border border-neutral-700 text-neutral-400 hover:bg-neutral-700/50 hover:text-white"
             }`}
           >
             <input
