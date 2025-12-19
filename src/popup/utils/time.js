@@ -11,9 +11,9 @@ export function addDays(date, days) {
 }
 
 export function toClistIsoNoMs(date) {
-   const iso = date.toISOString()
+    const iso = date.toISOString()
     return iso.slice(0, 19)
-} 
+}
 
 export function parseClistDate(str) {
     if (!str) return null
@@ -54,5 +54,38 @@ export function formatStartDateTimeForUi(date) {
     return {
         date: day && month && year ? `${day}/${month}/${year}` : datePart,
         time: timePart,
+    }
+}
+
+export function formatCountdownMs(msRemaining) {
+    const ms = Number(msRemaining)
+    if (!Number.isFinite(ms)) return ''
+
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000))
+    const days = Math.floor(totalSeconds / 86400)
+    const hours = Math.floor((totalSeconds % 86400) / 3600)
+    const minutes = Math.floor((totalSeconds % 3600) / 60)
+    const seconds = totalSeconds % 60
+
+    if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`
+    if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`
+    return `${minutes}m ${seconds}s`
+}
+
+export function getContestCountdown({ startMs, endMs, nowMs = Date.now() }) {
+    const start = Number(startMs)
+    const end = Number(endMs)
+    const now = Number(nowMs)
+
+    if (!Number.isFinite(start) || !Number.isFinite(end) || !Number.isFinite(now)) {
+        return { startsInText: '', endsInText: '' }
+    }
+
+    const startsInMs = start - now
+    const endsInMs = end - now
+
+    return {
+        startsInText: startsInMs > 0 ? formatCountdownMs(startsInMs) : 'Started',
+        endsInText: endsInMs > 0 ? formatCountdownMs(endsInMs) : 'Ended',
     }
 }

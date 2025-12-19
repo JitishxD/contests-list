@@ -35,6 +35,8 @@ export function useFilteredContests({ apiContests, selectedPlatforms, timeFilter
                     event: c?.event ?? "Contest",
                     href: c?.href,
                     resource,
+                    startMs: start.getTime(),
+                    endMs: end.getTime(),
                     startDate: startUi.date,
                     startTime: startUi.time,
                     endDate: endUi.date,
