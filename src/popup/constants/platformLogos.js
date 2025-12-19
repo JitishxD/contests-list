@@ -5,7 +5,7 @@ export const PLATFORM_LOGOS = {
     'geeksforgeeks.org': 'GeeksforGeeks.svg',
     'naukri.com/code360': 'naukri.jpg',
     'leetcode.com': 'leetcode.png',
-    'topcoder.com': 'topcoder.png',
+    'kaggle.com': 'kaggle.png',
 }
 
 export function getPlatformLogoSrc(resource) {

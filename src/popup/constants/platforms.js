@@ -6,4 +6,5 @@ export const PLATFORMS = [
     { id: "naukri.com/code360", label: "Naukri.com" },
     { id: "leetcode.com", label: "Leetcode" },
     { id: "topcoder.com", label: "Topcoder" },
+    { id: "kaggle.com", label: "Kaggle" },
 ];
