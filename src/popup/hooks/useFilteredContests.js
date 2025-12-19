@@ -29,6 +29,7 @@ export function useFilteredContests({ apiContests, selectedPlatforms, timeFilter
                 }
 
                 const startUi = formatStartDateTimeForUi(start);
+                const endUi = formatStartDateTimeForUi(end);
                 return {
                     id: c?.id ?? `${resource}:${c?.href ?? c?.event ?? ""}`,
                     event: c?.event ?? "Contest",
@@ -36,6 +37,8 @@ export function useFilteredContests({ apiContests, selectedPlatforms, timeFilter
                     resource,
                     startDate: startUi.date,
                     startTime: startUi.time,
+                    endDate: endUi.date,
+                    endTime: endUi.time,
                     durationText: formatDurationSeconds(c?.duration ?? 0),
                     logoSrc: getPlatformLogoSrc(resource),
                 };

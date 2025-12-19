@@ -94,6 +94,10 @@ const ContestList = ({ contests, loading, error }) => {
                 {contest.startDate} {contest.startTime}
               </div>
               <div className="text-gray-300">
+                <span className="text-gray-400">End:</span> {contest.endDate}{" "}
+                {contest.endTime}
+              </div>
+              <div className="text-gray-300">
                 <span className="text-gray-400">Duration:</span>{" "}
                 {contest.durationText}
               </div>
