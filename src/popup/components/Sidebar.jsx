@@ -1,14 +1,6 @@
 import React from "react";
 
-const platforms = [
-  { id: "atcoder.jp", label: "Atcoder" },
-  { id: "codechef.com", label: "CodeChef" },
-  { id: "codeforces.com", label: "Codeforces" },
-  { id: "geeksforgeeks.org", label: "GeeksForGeeks" },
-  { id: "naukri.com/code360", label: "Naukri.com" },
-  { id: "leetcode.com", label: "Leetcode" },
-  { id: "topcoder.com", label: "Topcoder" },
-];
+import { PLATFORMS as platforms } from "../constants/platforms";
 
 const Sidebar = ({
   isOpen,

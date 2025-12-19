@@ -58,6 +58,9 @@ const ContestList = ({ contests, loading, error }) => {
 
   return (
     <div className="p-4 text-white space-y-3">
+      <div className="text-xs text-gray-400" aria-live="polite">
+        {contests.length} contest{contests.length === 1 ? "" : "s"}
+      </div>
       {contests.map((contest) => (
         <div
           key={contest.id}

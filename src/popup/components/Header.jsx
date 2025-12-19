@@ -17,6 +17,22 @@ const Header = ({
 }) => {
   const lastUpdatedText = formatLastUpdated(lastFetchedAt);
 
+  const handleOpenOptions = () => {
+    try {
+      if (chrome?.runtime?.openOptionsPage) {
+        chrome.runtime.openOptionsPage();
+        return;
+      }
+      if (chrome?.runtime?.getURL && chrome?.tabs?.create) {
+        chrome.tabs.create({
+          url: chrome.runtime.getURL("src/options/options.html"),
+        });
+      }
+    } catch (e) {
+      console.error("Failed to open options page", e);
+    }
+  };
+
   return (
     <div className="flex justify-between items-center px-4 py-3 bg-gray-900 text-white border-b border-gray-800">
       <div className="flex flex-wrap items-center gap-2 min-w-0">
@@ -75,6 +91,14 @@ const Header = ({
         >
           <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
         </a>
+
+        <button
+          onClick={handleOpenOptions}
+          className="text-white hover:text-gray-300 header-socialItem header-socialItem--4"
+          title="Options"
+        >
+          <img src="/icons/gear.svg" alt="Options" className="w-6 h-6" />
+        </button>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import { useFilteredContests } from "./hooks/useFilteredContests";
 import "./index.css";
 
 const DEFAULT_HOSTS = ["codeforces.com"];
+const DEFAULT_TIME_FILTER = "upcoming";
 
 export const Popup = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -18,7 +19,7 @@ export const Popup = () => {
   const selectedPlatforms = Array.isArray(hostsRaw) ? hostsRaw : DEFAULT_HOSTS;
   const [timeFilter, setTimeFilter] = useLocalStorageState(
     "timeFilter",
-    "upcoming"
+    DEFAULT_TIME_FILTER
   );
 
   const {

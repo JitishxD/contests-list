@@ -22,6 +22,10 @@ Sibling hover effect for header social icons that is on hover, slightly nudge si
     transform: scale(1.4);
 }
 
+.header-socialRow:has(.header-socialItem--1:hover) .header-socialItem--4 {
+    transform: translateX(5px);
+}
+
 .header-socialRow:has(.header-socialItem--1:hover) .header-socialItem--2,
 .header-socialRow:has(.header-socialItem--1:hover) .header-socialItem--3 {
     transform: translateX(5px);
@@ -35,7 +39,21 @@ Sibling hover effect for header social icons that is on hover, slightly nudge si
     transform: translateX(5px);
 }
 
+.header-socialRow:has(.header-socialItem--2:hover) .header-socialItem--4 {
+    transform: translateX(5px);
+}
+
 .header-socialRow:has(.header-socialItem--3:hover) .header-socialItem--1,
 .header-socialRow:has(.header-socialItem--3:hover) .header-socialItem--2 {
+    transform: translateX(-5px);
+}
+
+.header-socialRow:has(.header-socialItem--3:hover) .header-socialItem--4 {
+    transform: translateX(5px);
+}
+
+.header-socialRow:has(.header-socialItem--4:hover) .header-socialItem--1,
+.header-socialRow:has(.header-socialItem--4:hover) .header-socialItem--2,
+.header-socialRow:has(.header-socialItem--4:hover) .header-socialItem--3 {
     transform: translateX(-5px);
 }
