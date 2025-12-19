@@ -5,6 +5,7 @@ import { PLATFORMS } from "../../popup/constants/platforms";
 const SettingsTab = ({
   settings,
   handleToggle,
+  handleChange,
   popupPreferences,
   setPopupPreferences,
 }) => {
@@ -54,6 +55,49 @@ const SettingsTab = ({
               }`}
             />
           </button>
+        </div>
+      </div>
+
+      {/* Clist Credentials */}
+      <div className="bg-[#1b1b22] rounded-xl p-6 border border-gray-800">
+        <h2 className="text-xl font-semibold text-indigo-300 mb-2">
+          🔑 Clist Credentials
+        </h2>
+        <p className="text-gray-400 text-sm mb-4">
+          Saved in sync storage and used to fetch contests from clist.by.
+        </p>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm text-gray-300 mb-2">
+              Clist Username
+            </label>
+            <input
+              type="text"
+              value={settings?.clistUsername ?? ""}
+              onChange={(e) => handleChange("clistUsername", e.target.value)}
+              placeholder="Your clist.by username"
+              className="w-full bg-[#0e0e12] border border-gray-800 rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              autoComplete="username"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-300 mb-2">
+              Clist API Key
+            </label>
+            <input
+              type="password"
+              value={settings?.clistApiKey ?? ""}
+              onChange={(e) => handleChange("clistApiKey", e.target.value)}
+              placeholder="Your clist.by API key"
+              className="w-full bg-[#0e0e12] border border-gray-800 rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              autoComplete="off"
+            />
+            <p className="text-xs text-gray-500 mt-2">
+              Get your API key from https://clist.by/accounts/api/
+            </p>
+          </div>
         </div>
       </div>
 

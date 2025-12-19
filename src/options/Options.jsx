@@ -7,12 +7,17 @@ const DEFAULT_TIME_FILTER = "upcoming";
 
 const DEFAULT_USER_SETTINGS = {
   dummySetting: false,
+  clistUsername: "",
+  clistApiKey: "",
 };
 
 const sanitizeUserSettings = (raw) => {
   return {
     ...DEFAULT_USER_SETTINGS,
     dummySetting: !!raw?.dummySetting,
+    clistUsername:
+      typeof raw?.clistUsername === "string" ? raw.clistUsername : "",
+    clistApiKey: typeof raw?.clistApiKey === "string" ? raw.clistApiKey : "",
   };
 };
 
@@ -426,6 +431,7 @@ export const Options = () => {
           <SettingsTab
             settings={settings}
             handleToggle={handleToggle}
+            handleChange={handleChange}
             popupPreferences={popupPreferences}
             setPopupPreferences={setPopupPreferences}
           />

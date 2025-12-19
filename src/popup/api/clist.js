@@ -2,16 +2,33 @@ import { addDays, startOfDay, toClistIsoNoMs } from '../utils/time'
 
 const CLIST_API_BASE_URL = 'https://clist.by/api/v4/contest/'
 
-const CLIST_USERNAME = import.meta.env.VITE_CLIST_USERNAME
-const CLIST_API_KEY = import.meta.env.VITE_CLIST_API_KEY
+async function loadClistCredentials() {
+    if (typeof chrome === 'undefined' || !chrome?.storage?.sync) {
+        return { username: '', apiKey: '' }
+    }
+
+    const result = await chrome.storage.sync.get(['userSettings'])
+    const userSettings = result?.userSettings
+
+    const username =
+        typeof userSettings?.clistUsername === 'string'
+            ? userSettings.clistUsername.trim()
+            : ''
+    const apiKey =
+        typeof userSettings?.clistApiKey === 'string' ? userSettings.clistApiKey.trim() : ''
+
+    return { username, apiKey }
+}
 
 export async function fetchClistContests({ signal, now = new Date() } = {}) {
-    if (!CLIST_USERNAME || !CLIST_API_KEY) {
+    const { username: clistUsername, apiKey: clistApiKey } = await loadClistCredentials()
+
+    if (!clistUsername || !clistApiKey) {
         throw new Error(
             [
                 'Missing Clist credentials.',
-                'Set VITE_CLIST_USERNAME and VITE_CLIST_API_KEY in a .env file.',
-                'See .env.example for reference.',
+                'Open the extension Options page(from gear icon ⚙️)',
+                'and set your Clist Username and API Key.',
                 'You can get your API key from https://clist.by/accounts/api/',
             ].join('\n'),
         )
@@ -22,8 +39,8 @@ export async function fetchClistContests({ signal, now = new Date() } = {}) {
     const startFromString = toClistIsoNoMs(startFrom)
 
     const params = new URLSearchParams({
-        username: CLIST_USERNAME,
-        api_key: CLIST_API_KEY,
+        username: clistUsername,
+        api_key: clistApiKey,
         format: 'json',
         order_by: 'start',
         limit: '1000',
