@@ -11,20 +11,20 @@ const Sidebar = ({
 }) => {
   return (
     <div
-      className={`bg-gray-900 text-white h-full absolute left-0 top-0 transition-transform duration-300 ease-in-out z-20 overflow-y-auto w-64 border-r border-gray-800 ${
+      className={`bg-[#141418] text-white h-full absolute left-0 top-0 transition-transform duration-300 ease-in-out z-20 overflow-y-auto w-64 border-r border-neutral-800 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="p-4 flex flex-col gap-4">
+      <div className="p-4 flex flex-col gap-3">
         {/* Platform Filters */}
         <div className="flex flex-col gap-2">
           {platforms.map((platform) => (
             <label
               key={platform.id}
-              className={`cursor-pointer px-4 py-2 rounded border transition-colors duration-200 text-center ${
+              className={`cursor-pointer px-4 py-2 rounded-lg border font-medium transition-colors duration-150 flex items-center justify-center text-center ${
                 selectedPlatforms.includes(platform.id)
-                  ? "bg-blue-600 border-blue-600 text-white"
-                  : "border-gray-700 text-gray-200 hover:bg-gray-800"
+                  ? "bg-teal-600 border-teal-600 text-white"
+                  : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:text-white"
               }`}
             >
               <input
@@ -39,12 +39,15 @@ const Sidebar = ({
         </div>
 
         {/* Time Filters */}
-        <div className="flex flex-col gap-2 mt-4 border-t border-gray-800 pt-4">
+        <div className="flex flex-col gap-2 mt-2 border-t border-neutral-800 pt-4">
+          <h3 className="text-xs font-medium text-neutral-500 uppercase tracking-wider px-1 mb-1 text-center">
+            Time Filter
+          </h3>
           <label
-            className={`cursor-pointer px-4 py-2 rounded border transition-colors duration-200 text-center ${
+            className={`cursor-pointer px-4 py-2 rounded-lg border font-medium transition-colors duration-150 flex items-center justify-center text-center ${
               timeFilter === "today"
-                ? "bg-blue-600 border-blue-600 text-white"
-                : "border-gray-700 text-gray-200 hover:bg-gray-800"
+                ? "bg-teal-600 border-teal-600 text-white"
+                : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:text-white"
             }`}
           >
             <input
@@ -57,10 +60,10 @@ const Sidebar = ({
             Today
           </label>
           <label
-            className={`cursor-pointer px-4 py-2 rounded border transition-colors duration-200 text-center ${
+            className={`cursor-pointer px-4 py-2 rounded-lg border font-medium transition-colors duration-150 flex items-center justify-center text-center ${
               timeFilter === "upcoming"
-                ? "bg-blue-600 border-blue-600 text-white"
-                : "border-gray-700 text-gray-200 hover:bg-gray-800"
+                ? "bg-teal-600 border-teal-600 text-white"
+                : "bg-neutral-800/50 border-neutral-700 text-neutral-300 hover:bg-neutral-700/50 hover:text-white"
             }`}
           >
             <input

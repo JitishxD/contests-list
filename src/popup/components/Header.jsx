@@ -34,18 +34,18 @@ const Header = ({
   };
 
   return (
-    <div className="flex justify-between items-center px-4 py-3 bg-gray-900 text-white border-b border-gray-800">
+    <div className="flex justify-between items-center px-4 py-3 bg-[#141418] text-white border-b border-neutral-800">
       <div className="flex flex-wrap items-center gap-2 min-w-0">
         <button
           onClick={onToggleSidebar}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200"
+          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-150"
         >
           Filter
         </button>
 
         <button
           onClick={onRefresh}
-          className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200 border border-gray-700"
+          className="bg-neutral-800 hover:bg-neutral-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-150 border border-neutral-700"
         >
           Refresh
         </button>
@@ -53,7 +53,7 @@ const Header = ({
         {lastUpdatedText ? (
           <div
             className={
-              "text-gray-400 min-w-0 " +
+              "text-neutral-400 min-w-0 " +
               (isSidebarOpen
                 ? "text-[11px] whitespace-normal wrap-break-word leading-tight max-w-[150px]"
                 : "text-[15px] whitespace-nowrap")
@@ -68,7 +68,7 @@ const Header = ({
       <div className="header-socialRow">
         <button
           onClick={onOpenModal}
-          className="text-white hover:text-gray-300 header-socialItem header-socialItem--1"
+          className="text-neutral-300 hover:text-white header-socialItem header-socialItem--1"
           title="Buy me a coffee"
         >
           <img src="/icons/coffee.svg" alt="Donate" className="w-6 h-6" />
@@ -78,7 +78,7 @@ const Header = ({
           href="https://github.com/JitishxD/contests-list"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 header-socialItem header-socialItem--2"
+          className="text-neutral-300 hover:text-white header-socialItem header-socialItem--2"
         >
           <img src="/icons/github.svg" alt="GitHub" className="w-6 h-6" />
         </a>
@@ -87,14 +87,14 @@ const Header = ({
           href="https://www.linkedin.com/in/jitish/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 header-socialItem header-socialItem--3"
+          className="text-neutral-300 hover:text-white header-socialItem header-socialItem--3"
         >
           <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
         </a>
 
         <button
           onClick={handleOpenOptions}
-          className="text-white hover:text-gray-300 header-socialItem header-socialItem--4"
+          className="text-neutral-300 hover:text-white header-socialItem header-socialItem--4"
           title="Options"
         >
           <img src="/icons/gear.svg" alt="Options" className="w-6 h-6" />

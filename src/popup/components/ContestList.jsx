@@ -7,7 +7,7 @@ const ContestLogo = ({ logoSrc, resource }) => {
   const showImage = !!logoSrc && !isLogoLoadFailed;
 
   return (
-    <div className="w-10 h-10 rounded bg-gray-700 flex items-center justify-center shrink-0 overflow-hidden">
+    <div className="w-10 h-10 rounded-lg bg-neutral-800 flex items-center justify-center shrink-0 overflow-hidden">
       {showImage ? (
         <img
           src={logoSrc}
@@ -16,7 +16,7 @@ const ContestLogo = ({ logoSrc, resource }) => {
           onError={() => setIsLogoLoadFailed(true)}
         />
       ) : (
-        <span className="text-[10px] text-gray-200 px-1 text-center">
+        <span className="text-[10px] text-neutral-300 px-1 text-center">
           {resource}
         </span>
       )}
@@ -66,7 +66,7 @@ const ContestList = ({ contests, loading, error }) => {
 
   return (
     <div className="p-4 text-white space-y-3">
-      <div className="text-xs text-gray-400" aria-live="polite">
+      <div className="text-xs text-neutral-500" aria-live="polite">
         {contests.length} contest{contests.length === 1 ? "" : "s"}
       </div>
       {contests.map((contest) => {
@@ -86,7 +86,7 @@ const ContestList = ({ contests, loading, error }) => {
         return (
           <div
             key={contest.id}
-            className="bg-gray-800 border border-gray-700 rounded-lg p-3 flex gap-3"
+            className="bg-neutral-900/50 border border-neutral-800 rounded-lg p-3 flex gap-3"
           >
             <ContestLogo
               logoSrc={contest.logoSrc}
@@ -114,16 +114,15 @@ const ContestList = ({ contests, loading, error }) => {
               )}
 
               <div className="mt-1 space-y-0.5 text-xs">
-                
                 {showStartInfo ? (
                   <>
-                    <div className="text-gray-300">
-                      <span className="text-gray-400">Start:</span>{" "}
+                    <div className="text-neutral-300">
+                      <span className="text-neutral-500">Start:</span>{" "}
                       {contest.startDate} {contest.startTime}
                     </div>
                     {countdown.startsInText ? (
-                      <div className="text-gray-300">
-                        <span className="text-gray-400">Starts in:</span>{" "}
+                      <div className="text-neutral-300">
+                        <span className="text-neutral-500">Starts in:</span>{" "}
                         {countdown.startsInText}
                       </div>
                     ) : null}
@@ -132,25 +131,25 @@ const ContestList = ({ contests, loading, error }) => {
 
                 {showEndInfo ? (
                   <>
-                    <div className="text-gray-300">
-                      <span className="text-gray-400">End:</span>{" "}
+                    <div className="text-neutral-300">
+                      <span className="text-neutral-500">End:</span>{" "}
                       {contest.endDate} {contest.endTime}
                     </div>
                     {countdown.endsInText ? (
-                      <div className="text-gray-300">
-                        <span className="text-gray-400">Ends in:</span>{" "}
+                      <div className="text-neutral-300">
+                        <span className="text-neutral-500">Ends in:</span>{" "}
                         {countdown.endsInText}
                       </div>
                     ) : null}
                   </>
                 ) : null}
 
-                <div className="text-gray-300">
-                  <span className="text-gray-400">Duration:</span>{" "}
+                <div className="text-neutral-300">
+                  <span className="text-neutral-500">Duration:</span>{" "}
                   {contest.durationText}
                 </div>
-                <div className="text-gray-300 truncate">
-                  <span className="text-gray-400">Platform:</span>{" "}
+                <div className="text-neutral-300 truncate">
+                  <span className="text-neutral-500">Platform:</span>{" "}
                   {contest.resource}
                 </div>
               </div>

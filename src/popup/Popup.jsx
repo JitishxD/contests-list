@@ -48,7 +48,7 @@ export const Popup = () => {
   const handleTimeFilterChange = (filter) => setTimeFilter(filter);
 
   return (
-    <div className="relative bg-gray-900 text-white overflow-hidden w-150 h-150">
+    <div className="relative bg-[#0e0e12] text-white overflow-hidden w-150 h-150">
       <Sidebar
         isOpen={isSidebarOpen}
         selectedPlatforms={selectedPlatforms}
