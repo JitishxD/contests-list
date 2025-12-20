@@ -16,8 +16,8 @@ const ContestLogo = ({ logoSrc, resource }) => {
           onError={() => setIsLogoLoadFailed(true)}
         />
       ) : (
-        <span className="text-[10px] text-neutral-300 px-1 text-center">
-          {resource}
+        <span className="text-sm text-neutral-300 font-semibold">
+          {resource[0]?.toUpperCase()}
         </span>
       )}
     </div>
